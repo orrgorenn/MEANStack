@@ -1,21 +1,11 @@
 import express from 'express'
+import { getUsers, createUser, login, getProfile } from '../controllers/users.js'
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
-  res.status(200).json({ route: 'Get' })
-})
-
-router.get('/register', (req, res) => {
-  res.status(200).json({ route: 'Register' })
-})
-
-router.get('/profile', (req, res) => {
-  res.status(200).json({ route: 'Profile' })
-})
-
-router.get('/login', (req, res) => {
-  res.status(200).json({ route: 'Login' })
-})
+router.get('/', getUsers)
+router.post('/register', createUser)
+router.post('/login', login)
+router.get('/profile', getProfile)
 
 export default router
